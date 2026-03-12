@@ -1,87 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Stream - Boyfriend on Demand</title>
+    <title>Boyfriend on Demand Ep 1 - Premium Stream</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
-            font-family: Arial, sans-serif;
-            background-color: #0f0f0f;
-            color: white;
+            font-family: 'Inter', sans-serif;
+            background-color: #050505;
+            color: #ffffff;
             display: flex;
-            justify-content: center;
-            align-items: center;
             flex-direction: column;
-            padding: 20px;
+            align-items: center;
+            min-height: 100vh;
         }
 
-        .video-container {
-            position: relative;
+        /* Navbar Style */
+        header {
             width: 100%;
-            max-width: 800px;
+            padding: 20px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+            text-align: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: #E50914; /* Netflix Red vibe */
+            letter-spacing: 1px;
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        /* Video Box Styling */
+        .video-card {
+            background: #111;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid #222;
+        }
+
+        .video-wrapper {
+            position: relative;
             padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
             height: 0;
-            overflow: hidden;
-            background: #000;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
 
-        .video-container iframe {
+        .video-wrapper iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            border: 0;
+            border: none;
         }
 
-        .video-title {
-            margin-top: 15px;
-            font-size: 20px;
+        /* Info Section */
+        .video-info {
+            padding: 20px;
+        }
+
+        .video-info h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .badge {
+            background: #E50914;
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            text-transform: uppercase;
             font-weight: bold;
-            text-align: left;
-            width: 100%;
-            max-width: 800px;
+            margin-right: 10px;
+        }
+
+        .description {
+            color: #aaa;
+            font-size: 14px;
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: auto;
+            padding: 30px;
+            color: #444;
+            font-size: 12px;
         }
     </style>
 </head>
 <body>
 
-    <div class="video-container">
-        <iframe 
-            src="https://www.dailymotion.com/embed/video/xa1g56e?ui-logo=false&ui-start-screen-info=false" 
-            allow="autoplay; fullscreen; picture-in-picture" 
-            allowfullscreen>
-        </iframe>
+    <header>STREAMHUB</header>
+
+    <div class="main-container">
+        <div class="video-card">
+            <div class="video-wrapper">
+                <iframe 
+                    src="https://www.dailymotion.com/embed/video/xa1g56e?ui-logo=false&ui-start-screen-info=false&autoplay=0" 
+                    allowfullscreen 
+                    allow="autoplay; picture-in-picture">
+                </iframe>
+            </div>
+
+            <div class="video-info">
+                <span class="badge">New Episode</span>
+                <span class="badge" style="background: #333;">HD</span>
+                <h1>Boyfriend on Demand Ep 1</h1>
+                <p class="description">
+                    Watch the latest episode of "Boyfriend on Demand". Experience high-quality streaming with a modern interface.
+                </p>
+            </div>
+        </div>
     </div>
 
-    <div class="video-title">
-        Boyfriend on Demand Ep 1
-    </div>
+    <footer>&copy; 2026 StreamHub Digital. All Rights Reserved.</footer>
 
-</body>
-</html>
-            div.innerHTML = `<img src="${ch.logo || 'https://via.placeholder.com/40'}"> <span>${ch.name}</span>`;
-            div.onclick = () => playStream(ch.url);
-            listContainer.appendChild(div);
-        });
-    }
-
-    function playStream(url) {
-        if (Hls.isSupported()) {
-            const hls = new Hls();
-            hls.loadSource(url);
-            hls.attachMedia(video);
-            hls.on(Hls.Events.MANIFEST_PARSED, () => video.play());
-        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-            video.src = url;
-            video.play();
-        }
-    }
-
-    loadPlaylist();
-</script>
 </body>
 </html>
